@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HERITAGE & ARCHIVE</title>
+    <!-- Google Fonts import for Heritage Serif look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Serif+KR:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0c0e;
+            --surface-color: #141619;
+            --accent-gold: #d4af37;
+            --accent-gold-light: #f3e5ab;
+            --text-primary: #f5f5f7;
+            --text-secondary: #9a9a9e;
+            --border-color: #26292e;
+            --font-serif-en: 'Cormorant Garamond', serif;
+            --font-serif-kr: 'Noto Serif KR', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-serif-kr);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Header / Brand Logo */
+        header {
+            padding: 40px 0 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .brand-title {
+            font-family: var(--font-serif-en);
+            font-size: 2rem;
+            letter-spacing: 0.35em;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Section Title Styling */
+        .section-label {
+            font-family: var(--font-serif-en);
+            font-size: 0.85rem;
+            letter-spacing: 0.25em;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        /* 1. Parallelogram Slider Section */
+        .hero-section {
+            padding: 60px 0 80px;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .parallelogram-container {
+            position: absolute;
+            top: 0;
+            left: -10%;
+            width: 120%;
+            height: 100%;
+            transform: skewX(-12deg); /* 평행사변형 연출 */
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+            border: 1px solid var(--border-color);
+        }
+
+        .slide-track {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide img {
+            width: 130%; /* skew 보정을 위한 오버사이즈 */
+            height: 100%;
+            object-fit: cover;
+            transform: skewX(12deg) scale(1.1); /* 역스큐로 이미지 왜곡 방지 */
+            filter: brightness(0.75) contrast(1.1);
+        }
+
+        /* Slider Controls */
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: var(--accent-gold);
+            transform: scale(1.3);
+        }
+
+        /* 2. Introduction Section */
+        .about-section {
+            padding: 60px 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .profile-header {
+            margin-bottom: 40px;
+        }
+
+        .profile-name {
+            font-size: 2.4rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .profile-tagline {
+            font-size: 1.15rem;
+            color: var(--accent-gold-light);
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        .history-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .history-item {
+            background: var(--surface-color);
+            padding: 24px 30px;
+            border-left: 2px solid var(--accent-gold);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .history-year {
+            font-family: var(--font-serif-en);
+            font-size: 0.95rem;
+            color: var(--accent-gold);
+            letter-spacing: 0.1em;
+        }
+
+        .history-title {
+            font-size: 1.1rem;
+            color: #ffffff;
+            font-weight: 400;
+        }
+
+        .history-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-family: var(--font-sans);
+        }
+
+        .contact-box {
+            margin-top: 40px;
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .contact-label {
+            font-family: var(--font-serif-en);
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.85rem;
+        }
+
+        .contact-email {
+            font-family: var(--font-sans);
+            color: var(--accent-gold-light);
+            font-size: 1.05rem;
+            text-decoration: none;
+            border-bottom: 1px dashed var(--accent-gold);
+            padding-bottom: 2px;
+            transition: color 0.3s ease;
+        }
+
+        .contact-email:hover {
+            color: #ffffff;
+        }
+
+        /* 3. Navigation / Menu Cards */
+        .menu-section {
+            padding: 60px 0 100px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 20px;
+        }
+
+        .menu-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            padding: 36px 28px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent-gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(212, 175, 55, 0.4);
+            background: #191c20;
+        }
+
+        .menu-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .menu-num {
+            font-family: var(--font-serif-en);
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .menu-title {
+            font-size: 1.3rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .menu-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .parallelogram-container {
+                transform: skewX(-6deg);
+            }
+            .slide img {
+                transform: skewX(6deg) scale(1.1);
+            }
+            .profile-name {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand-title">HERITAGE</div>
+    </header>
+
+    <div class="container">
+
+        <!-- 1. Parallelogram Photo Slider -->
+        <section class="hero-section">
+            <span class="section-label">01 / ARCHIVE VISUALS</span>
+            <div class="slider-wrapper">
+                <div class="parallelogram-container">
+                    <div class="slide-track" id="slideTrack">
+                        <!-- 이미지 URL 및 텍스트는 자유롭게 교체 가능합니다 -->
+                        <div class="slide">
+                            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80" alt="Heritage 1">
+                        </div>
+                        <div class="slide">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80" alt="Heritage 2">
+                        </div>
+                        <div class="slide">
+                            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80" alt="Heritage 3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-dots" id="sliderDots">
+                <div class="dot active" onclick="goToSlide(0)"></div>
+                <div class="dot" onclick="goToSlide(1)"></div>
+                <div class="dot" onclick="goToSlide(2)"></div>
+            </div>
+        </section>
+
+        <!-- 2. Profile & History Section -->
+        <section class="about-section">
+            <span class="section-label">02 / PROFILE & BIOGRAPHY</span>
+            
+            <div class="profile-header">
+                <!-- 이름 입력 -->
+                <h1 class="profile-name">홍길동</h1>
+                <!-- 한줄 소개 입력 -->
+                <p class="profile-tagline">"시간이 지나도 변하지 않는 가치와 시대를 아우르는 정밀함을 탐구합니다."</p>
+            </div>
+
+            <!-- 경력 및 이력 목록 -->
+            <div class="history-grid">
+                <div class="history-item">
+                    <span class="history-year">2023 — PRESENT</span>
+                    <h3 class="history-title">Senior Creative Director</h3>
+                    <p class="history-desc">브랜드 아이덴티티 구축 및 헤리티지 아카이브 디렉팅 전반 총괄</p>
+                </div>
+                <div class="history-item">
+                    <span class="history-year">2020 — 2023</span>
+                    <h3 class="history-title">Lead Brand Designer</h3>
+                    <p class="history-desc">글로벌 프리미엄 브랜드 리브랜딩 및 웹 아키텍처 디자인 프로젝트 수행</p>
+                </div>
+                <div class="history-item">
+                    <span class="history-year">2016 — 2020</span>
+                    <h3 class="history-title">Visual Arts & Strategy</h3>
+                    <p class="history-desc">시각 디자인 분야 주요 프로젝트 참여 및 전시 아카이빙</p>
+                </div>
+            </div>
+
+            <!-- 메일 연락처 -->
+            <div class="contact-box">
+                <span class="contact-label">CONTACT :</span>
+                <a href="mailto:contact@yourdomain.com" class="contact-email">contact@yourdomain.com</a>
+            </div>
+        </section>
+
+        <!-- 3. Navigation / Menu Section -->
+        <section class="menu-section">
+            <span class="section-label">03 / EXPLORE</span>
+            <div class="menu-grid">
+                <a href="#" class="menu-card">
+                    <span class="menu-num">01</span>
+                    <h2 class="menu-title">PORTFOLIO</h2>
+                    <p class="menu-desc">엄선된 대표 작품 및 비주얼 프로젝트 아카이브를 확인하세요.</p>
+                </a>
+                <a href="#" class="menu-card">
+                    <span class="menu-num">02</span>
+                    <h2 class="menu-title">COLLECTION</h2>
+                    <p class="menu-desc">시간의 깊이를 담은 스페셜 에디션과 콜라보레이션 작업물.</p>
+                </a>
+                <a href="#" class="menu-card">
+                    <span class="menu-num">03</span>
+                    <h2 class="menu-title">INQUIRY</h2>
+                    <p class="menu-desc">협업 제안 및 브랜드 컨설팅 문의를 위한 가이드라인.</p>
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 HERITAGE ARCHIVE. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <script>
+        // 슬라이더 제어 스크립트
+        let currentSlide = 0;
+        const totalSlides = 3;
+        const slideTrack = document.getElementById('slideTrack');
+        const dots = document.querySelectorAll('.dot');
+
+        function goToSlide(index) {
+            currentSlide = index;
+            slideTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            dots.forEach((dot, i) => {
+                if (i === currentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // 4초마다 자동 슬라이드
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            goToSlide(currentSlide);
+        }, 4000);
+    </script>
+</body>
+</html>
