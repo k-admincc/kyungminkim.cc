@@ -141,6 +141,7 @@
         .about-section {
             padding: 60px 0;
             border-top: 1px solid var(--border-color);
+            text-align: center;
         }
 
         .profile-header {
@@ -162,26 +163,64 @@
             font-style: italic;
         }
 
-        .history-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
+       .history-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
             margin-top: 30px;
         }
 
         .history-item {
-            background: var(--surface-color);
-            padding: 24px 30px;
-            border-left: 2px solid var(--accent-gold);
+            background: var
+            padding: 18px 24px; 
+            max-width: 650px;    
+            width: 100%;       
+            
+       
+            border: 1px solid var
+            border-top: 2px solid var;
+            
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            align-items: center; 
+            text-align: center; 
+            gap: 4px;          
         }
 
         .history-year {
-            font-family: var(--font-serif-en);
+            font-family: var;
+            font-size: 0.85rem; 
+            color: var;
+            letter-spacing: 0.1em;
+        }
+
+        .history-title {
+            font-size: 1.05rem;
+            color: #ffffff;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+
+        .history-desc {
+            font-size: 0.88rem;
+            color: var;
+            font-family: var;
+        }
+
+        .contact-box {
+            margin-top: 40px;
+            padding: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .history-year {
+            font-family: var;
             font-size: 0.95rem;
-            color: var(--accent-gold);
+            color: var;
             letter-spacing: 0.1em;
         }
 
@@ -193,8 +232,8 @@
 
         .history-desc {
             font-size: 0.9rem;
-            color: var(--text-secondary);
-            font-family: var(--font-sans);
+            color: var;
+            font-family: var;
         }
 
         .contact-box {
@@ -322,7 +361,7 @@
 <body>
 
     <header>
-        <div class="brand-title">HERITAGE</div>
+        <div class="brand-title">KYUNGMIN KIM</div>
     </header>
 
     <div class="container">
@@ -391,7 +430,7 @@
             <!-- 메일 연락처 -->
             <div class="contact-box">
                 <span class="contact-label">CONTACT :</span>
-                <a href="mailto:kyungminkim@kyungminkim.cc" class="contact-email">contact@yourdomain.com</a>
+                <a href="mailto:kyungminkim@kyungminkim.cc" class="contact-email">kyungminkim@kyungminkim.cc</a>
             </div>
         </section>
 
