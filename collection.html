@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COLLECTION - HERITAGE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Serif+KR:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0c0e;
+            --surface-color: #141619;
+            --accent-gold: #d4af37;
+            --accent-gold-light: #f3e5ab;
+            --text-primary: #f5f5f7;
+            --text-secondary: #9a9a9e;
+            --border-color: #26292e;
+            --font-serif-en: 'Cormorant Garamond', serif;
+            --font-serif-kr: 'Noto Serif KR', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-serif-kr);
+            line-height: 1.8;
+        }
+
+        header {
+            padding: 40px 0 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .back-nav {
+            display: inline-block;
+            margin-bottom: 12px;
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-family: var(--font-serif-en);
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            transition: color 0.3s ease;
+        }
+
+        .back-nav:hover { color: #ffffff; }
+
+        .brand-title {
+            font-family: var(--font-serif-en);
+            font-size: 2rem;
+            letter-spacing: 0.35em;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 24px 100px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .page-title {
+            font-family: var(--font-serif-en);
+            font-size: 2.5rem;
+            color: #ffffff;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+        }
+
+        .page-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-family: var(--font-sans);
+        }
+
+        /* Collection Grid */
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .collection-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .collection-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-img-wrapper {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            filter: brightness(0.8);
+        }
+
+        .collection-card:hover .card-img-wrapper img {
+            transform: scale(1.05);
+            filter: brightness(1);
+        }
+
+        .card-content {
+            padding: 24px;
+        }
+
+        .card-tag {
+            font-family: var(--font-serif-en);
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            letter-spacing: 0.15em;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-weight: 400;
+        }
+
+        .card-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+        }
+
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="back-nav">← MAIN ARCHIVE</a>
+        <div class="brand-title">COLLECTION</div>
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">SPECIAL EDITIONS</h1>
+            <p class="page-desc">시간의 깊이를 담은 아카이브와 콜라보레이션 아이템 목록입니다.</p>
+        </div>
+
+        <div class="collection-grid">
+            <!-- 아이템 1 -->
+            <div class="collection-card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80" alt="Collection 1">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">EDITION 01</span>
+                    <h2 class="card-title">Combat Sambo Heritage Gear</h2>
+                    <p class="card-desc">격투 스포츠의 헤리티지와 현대적 감각을 결합한 스페셜 그래픽 킷.</p>
+                </div>
+            </div>
+
+            <!-- 아이템 2 -->
+            <div class="collection-card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" alt="Collection 2">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">EDITION 02</span>
+                    <h2 class="card-title">Visual Identity Archive</h2>
+                    <p class="card-desc">클래식 브랜딩과 시각 예술 전략을 위한 브랜딩 가이드북.</p>
+                </div>
+            </div>
+
+            <!-- 아이템 3 -->
+            <div class="collection-card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80" alt="Collection 3">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">EDITION 03</span>
+                    <h2 class="card-title">Apparel & Merchandising</h2>
+                    <p class="card-desc">선수 활동과 비즈니스를 아우르는 커스텀 어패럴 디자인.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 HERITAGE ARCHIVE. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+</body>
+</html>

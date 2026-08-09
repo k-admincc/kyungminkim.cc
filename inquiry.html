@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INQUIRY - HERITAGE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Serif+KR:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0c0e;
+            --surface-color: #141619;
+            --accent-gold: #d4af37;
+            --accent-gold-light: #f3e5ab;
+            --text-primary: #f5f5f7;
+            --text-secondary: #9a9a9e;
+            --border-color: #26292e;
+            --font-serif-en: 'Cormorant Garamond', serif;
+            --font-serif-kr: 'Noto Serif KR', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-serif-kr);
+            line-height: 1.8;
+        }
+
+        header {
+            padding: 40px 0 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .back-nav {
+            display: inline-block;
+            margin-bottom: 12px;
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-family: var(--font-serif-en);
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            transition: color 0.3s ease;
+        }
+
+        .back-nav:hover { color: #ffffff; }
+
+        .brand-title {
+            font-family: var(--font-serif-en);
+            font-size: 2rem;
+            letter-spacing: 0.35em;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 60px 24px 100px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-title {
+            font-family: var(--font-serif-en);
+            font-size: 2.5rem;
+            color: #ffffff;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+        }
+
+        .page-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-family: var(--font-sans);
+        }
+
+        /* Form Styling */
+        .inquiry-form {
+            background: var(--surface-color);
+            padding: 40px 30px;
+            border: 1px solid var(--border-color);
+            border-top: 2px solid var(--accent-gold);
+            border-radius: 4px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-label {
+            font-family: var(--font-serif-en);
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .form-input, .form-textarea {
+            background: #0b0c0e;
+            border: 1px solid var(--border-color);
+            color: #ffffff;
+            padding: 12px 16px;
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            border-radius: 2px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            border-color: var(--accent-gold);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .submit-btn {
+            background: transparent;
+            color: var(--accent-gold);
+            border: 1px solid var(--accent-gold);
+            padding: 14px 28px;
+            font-family: var(--font-serif-en);
+            font-size: 0.95rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent-gold);
+            color: #0b0c0e;
+            font-weight: 600;
+        }
+
+        .direct-email {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-family: var(--font-sans);
+        }
+
+        .direct-email a {
+            color: var(--accent-gold-light);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--accent-gold);
+        }
+
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="back-nav">← MAIN ARCHIVE</a>
+        <div class="brand-title">INQUIRY</div>
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">GET IN TOUCH</h1>
+            <p class="page-desc">프로젝트 제안, 브랜드 컨설팅, 협업 문의를 남겨주세요.</p>
+        </div>
+
+        <form class="inquiry-form" action="mailto:contact@yourdomain.com" method="post" enctype="text/plain">
+            <div class="form-group">
+                <label class="form-label">Name / Company</label>
+                <input type="text" class="form-input" name="name" placeholder="성함 또는 기업명을 입력해주세요" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-input" name="email" placeholder="답변받으실 이메일을 입력해주세요" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Subject</label>
+                <input type="text" class="form-input" name="subject" placeholder="문의 제목을 입력해주세요">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Message</label>
+                <textarea class="form-textarea" name="message" placeholder="프로젝트 내용이나 협업 관련 상세 내용을 적어주세요" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">SEND MESSAGE</button>
+        </form>
+
+        <div class="direct-email">
+            직접 이메일 문의: <a href="mailto:contact@yourdomain.com">contact@yourdomain.com</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 HERITAGE ARCHIVE. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+</body>
+</html>
