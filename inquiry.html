@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INQUIRY - HERITAGE</title>
+    <title>INQUIRY</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Serif+KR:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -181,7 +181,7 @@
     <div class="container">
         <div class="page-header">
             <h1 class="page-title">GET IN TOUCH</h1>
-            <p class="page-desc">프로젝트 제안, 브랜드 컨설팅, 협업 문의를 남겨주세요.</p>
+            <p class="page-desc">Please send your message.</p>
         </div>
 
         <form class="inquiry-form" id="contactForm">
@@ -211,12 +211,12 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 HERITAGE ARCHIVE. ALL RIGHTS RESERVED.</p>
+        <p>&copy; KYUNGMIN KIM. ALL RIGHTS RESERVED.</p>
     </footer>
 
     <script>
         // EmailJS 초기화 (발급받은 PUBLIC KEY로 변경)
-        emailjs.init("YOUR_PUBLIC_KEY"); 
+        emailjs.init("BFOvTw40MPjTEU1ZC"); 
 
         document.getElementById('contactForm').addEventListener('submit', function(event) {
             event.preventDefault();
@@ -228,7 +228,7 @@
             submitBtn.disabled = true;
 
             // EmailJS 전송 (SERVICE ID, TEMPLATE ID로 변경)
-            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+            emailjs.sendForm('service_jet5k6c', 'template_gsqdjm5', this)
                 .then(function() {
                     statusMsg.style.display = "block";
                     statusMsg.style.color = "#d4af37";
