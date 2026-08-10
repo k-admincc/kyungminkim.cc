@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INQUIRY</title>
+    <title>INQUIRY - HERITAGE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Serif+KR:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- EmailJS SDK 라이브러리 추가 -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
     <style>
         :root {
             --bg-color: #0b0c0e;
@@ -82,7 +86,6 @@
             font-family: var(--font-sans);
         }
 
-        /* Form Styling */
         .inquiry-form {
             background: var(--surface-color);
             padding: 40px 30px;
@@ -149,18 +152,13 @@
             font-weight: 600;
         }
 
-        .direct-email {
-            margin-top: 30px;
+        /* 성공/실패 상태 메시지 */
+        .status-message {
+            margin-top: 15px;
             text-align: center;
             font-size: 0.9rem;
-            color: var(--text-secondary);
             font-family: var(--font-sans);
-        }
-
-        .direct-email a {
-            color: var(--accent-gold-light);
-            text-decoration: none;
-            border-bottom: 1px dashed var(--accent-gold);
+            display: none;
         }
 
         footer {
@@ -183,41 +181,69 @@
     <div class="container">
         <div class="page-header">
             <h1 class="page-title">GET IN TOUCH</h1>
-            <p class="page-desc">Please send your message.</p>
+            <p class="page-desc">프로젝트 제안, 브랜드 컨설팅, 협업 문의를 남겨주세요.</p>
         </div>
 
-        <form class="inquiry-form" action="mailto:contact@yourdomain.com" method="post" enctype="text/plain">
+        <form class="inquiry-form" id="contactForm">
             <div class="form-group">
                 <label class="form-label">Name / Company</label>
-                <input type="text" class="form-input" name="name" placeholder="성함 또는 기업명을 입력해주세요" required>
+                <input type="text" class="form-input" id="name" name="name" placeholder="성함 또는 기업명을 입력해주세요" required>
             </div>
 
             <div class="form-group">
                 <label class="form-label">Email Address</label>
-                <input type="email" class="form-input" name="email" placeholder="답변받으실 이메일을 입력해주세요" required>
+                <input type="email" class="form-input" id="email" name="email" placeholder="답변받으실 이메일을 입력해주세요" required>
             </div>
 
             <div class="form-group">
                 <label class="form-label">Subject</label>
-                <input type="text" class="form-input" name="subject" placeholder="문의 제목을 입력해주세요">
+                <input type="text" class="form-input" id="subject" name="subject" placeholder="문의 제목을 입력해주세요">
             </div>
 
             <div class="form-group">
                 <label class="form-label">Message</label>
-                <textarea class="form-textarea" name="message" placeholder="프로젝트 내용이나 협업 관련 상세 내용을 적어주세요" required></textarea>
+                <textarea class="form-textarea" id="message" name="message" placeholder="프로젝트 내용이나 협업 관련 상세 내용을 적어주세요" required></textarea>
             </div>
 
-            <button type="submit" class="submit-btn">SEND MESSAGE</button>
+            <button type="submit" class="submit-btn" id="submitBtn">SEND MESSAGE</button>
+            <div class="status-message" id="statusMsg"></div>
         </form>
-
-        <div class="direct-email">
-            직접 이메일 문의: <a href="mailto:kyungminkim@kyungminkim.cc">kyungminkim@kyungminkim.cc</a>
-        </div>
     </div>
 
     <footer>
-        <p>&copy; KYUNGMIN KIM. ALL RIGHTS RESERVED.</p>
+        <p>&copy; 2026 HERITAGE ARCHIVE. ALL RIGHTS RESERVED.</p>
     </footer>
 
+    <script>
+        // EmailJS 초기화 (발급받은 PUBLIC KEY로 변경)
+        emailjs.init("YOUR_PUBLIC_KEY"); 
+
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const submitBtn = document.getElementById('submitBtn');
+            const statusMsg = document.getElementById('statusMsg');
+
+            submitBtn.innerText = "SENDING...";
+            submitBtn.disabled = true;
+
+            // EmailJS 전송 (SERVICE ID, TEMPLATE ID로 변경)
+            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+                .then(function() {
+                    statusMsg.style.display = "block";
+                    statusMsg.style.color = "#d4af37";
+                    statusMsg.innerText = "메시지가 성공적으로 전송되었습니다.";
+                    submitBtn.innerText = "SEND MESSAGE";
+                    submitBtn.disabled = false;
+                    document.getElementById('contactForm').reset();
+                }, function(error) {
+                    statusMsg.style.display = "block";
+                    statusMsg.style.color = "#ff4d4d";
+                    statusMsg.innerText = "전송에 실패했습니다. 다시 시도해 주세요.";
+                    submitBtn.innerText = "SEND MESSAGE";
+                    submitBtn.disabled = false;
+                });
+        });
+    </script>
 </body>
 </html>
