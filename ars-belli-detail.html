@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARS BELLI - PLAYER</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Serif+KR:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0c0e;
+            --surface-color: #141619;
+            --accent-gold: #d4af37;
+            --accent-gold-light: #f3e5ab;
+            --text-primary: #f5f5f7;
+            --text-secondary: #9a9a9e;
+            --border-color: #26292e;
+            --font-serif-en: 'Cormorant Garamond', serif;
+            --font-serif-kr: 'Noto Serif KR', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-serif-kr);
+            line-height: 1.8;
+        }
+
+        header {
+            padding: 30px 0 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        /* 뒤로가기 버튼 */
+        .back-nav {
+            display: inline-block;
+            margin-bottom: 8px;
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-family: var(--font-serif-en);
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            transition: all 0.3s ease;
+        }
+
+        .back-nav:hover {
+            color: #ffffff;
+            transform: translateX(-4px);
+        }
+
+        .brand-title {
+            font-family: var(--font-serif-en);
+            font-size: 1.8rem;
+            letter-spacing: 0.35em;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 50px 24px 100px;
+        }
+
+        .video-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .video-title-display {
+            font-size: 2rem;
+            color: #ffffff;
+            font-weight: 400;
+            margin-top: 10px;
+        }
+
+        /* 유튜브 비디오 반응형 임베드 프레임 */
+        .video-player-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background: #000;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+
+        .video-player-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .bottom-action {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn-back {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-family: var(--font-serif-en);
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            transition: all 0.3s ease;
+        }
+
+        .btn-back:hover {
+            background: var(--accent-gold);
+            color: #0b0c0e;
+            font-weight: 600;
+        }
+
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="ars-belli.html" class="back-nav">← BACK TO ARS BELLI</a>
+        <div class="brand-title">ARS BELLI</div>
+    </header>
+
+    <div class="container">
+        <div class="video-header">
+            <h1 class="video-title-display" id="videoTitle">Video Player</h1>
+        </div>
+
+        <!-- 유튜브 동영상 플레이어 -->
+        <div class="video-player-wrapper">
+            <iframe id="youtubePlayer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <div class="bottom-action">
+            <a href="ars-belli.html" class="btn-back">BACK TO ARS BELLI</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; KYUNGMIN KIM. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <script>
+        // URL의 파라미터에서 비디오 ID와 제목을 불러와 동적으로 유투브 출력
+        const urlParams = new URLSearchParams(window.location.search);
+        const videoId = urlParams.get('vid') || 'vN4U5Dyf-y4'; // 기본 비디오 ID
+        const titleParam = urlParams.get('title');
+
+        if (titleParam) {
+            document.getElementById('videoTitle').innerText = decodeURIComponent(titleParam);
+        }
+
+        // 유튜브 Embed 링크 설정 (자동재생)
+        document.getElementById('youtubePlayer').src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    </script>
+
+</body>
+</html>
