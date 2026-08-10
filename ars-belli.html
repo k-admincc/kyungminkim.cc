@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARS BELLI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Serif+KR:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0c0e;
+            --surface-color: #141619;
+            --accent-gold: #d4af37;
+            --accent-gold-light: #f3e5ab;
+            --text-primary: #f5f5f7;
+            --text-secondary: #9a9a9e;
+            --border-color: #26292e;
+            --font-serif-en: 'Cormorant Garamond', serif;
+            --font-serif-kr: 'Noto Serif KR', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-serif-kr);
+            line-height: 1.8;
+        }
+
+        header {
+            padding: 40px 0 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .back-nav {
+            display: inline-block;
+            margin-bottom: 12px;
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-family: var(--font-serif-en);
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            transition: color 0.3s ease;
+        }
+
+        .back-nav:hover { color: #ffffff; }
+
+        .brand-title {
+            font-family: var(--font-serif-en);
+            font-size: 2.2rem;
+            letter-spacing: 0.35em;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 24px 100px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .page-title {
+            font-family: var(--font-serif-en);
+            font-size: 2.8rem;
+            color: #ffffff;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+        }
+
+        .page-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-family: var(--font-sans);
+        }
+
+        /* 1열에 3개씩 배치되는 그리드 */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .video-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .video-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                        border-color 0.4s ease, 
+                        box-shadow 0.4s ease;
+        }
+
+        /* 썸네일 이미지 및 호버 확대 애니메이션 */
+        .thumbnail-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 비율 유지 */
+            overflow: hidden;
+            background: #000;
+        }
+
+        .thumbnail-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease, filter 0.5s ease;
+            filter: brightness(0.85);
+        }
+
+        /* 재생 아이콘 표시 */
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(11, 12, 14, 0.7);
+            border: 1px solid var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .play-icon::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 8px 0 8px 14px;
+            border-color: transparent transparent transparent var(--accent-gold);
+            margin-left: 3px;
+        }
+
+        /* 카드 마우스 호버 효과 */
+        .video-card-link:hover .video-card {
+            transform: translateY(-8px) scale(1.02); /* 카드 살짝 확대 및 떠오름 */
+            border-color: var(--accent-gold);
+            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.15);
+        }
+
+        .video-card-link:hover .thumbnail-wrapper img {
+            transform: scale(1.08); /* 썸네일 이미지 확대 */
+            filter: brightness(1);
+        }
+
+        .video-card-link:hover .play-icon {
+            background: var(--accent-gold);
+        }
+
+        .video-card-link:hover .play-icon::after {
+            border-color: transparent transparent transparent #0b0c0e;
+        }
+
+        .video-info {
+            padding: 20px 20px 24px;
+        }
+
+        .video-tag {
+            font-family: var(--font-serif-en);
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            letter-spacing: 0.15em;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .video-title {
+            font-size: 1.1rem;
+            color: #ffffff;
+            font-weight: 400;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .video-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-family: var(--font-sans);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* 반응형 모바일 처리 */
+        @media (max-width: 992px) {
+            .video-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 600px) {
+            .video-grid { grid-template-columns: 1fr; }
+        }
+
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="back-nav">← MAIN ARCHIVE</a>
+        <div class="brand-title">ARS BELLI</div>
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">VIDEO ARCHIVE</h1>
+            <p class="page-desc">My games and trainings</p>
+        </div>
+
+        <!-- 3열 비디오 그리드 -->
+        <div class="video-grid">
+
+            <!-- 비디오 01 (youtube-id 값으로 이동) -->
+            <a href="ars-belli-detail.html?vid=8Lr-_SdbI40" class="video-card-link">
+                <div class="video-card">
+                    <div class="thumbnail-wrapper">
+                        <!-- 유튜브 고화질 썸네일 자동 링크 (vN4U5Dyf-y4 부분에 비디오 ID 입력) -->
+                        <img src="https://img.youtube.com/vi/8Lr-_SdbI40/hqdefault.jpg" alt="Video Thumbnail">
+                        <div class="play-icon"></div>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-tag">VS. Richard D. Yang</span>
+                        <h2 class="video-title">2023 KOREA OPEN WORLD SAMBO CHAMPIONSHIP</h2>
+                        <p class="video-desc">VS Richard D. Yang(Blue) of Evolve MMA in Singapore.</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 비디오 02 -->
+            <a href="ars-belli-detail.html?vid=L_LUpnjgPso&title=World+Sambo+Championship+Highlights" class="video-card-link">
+                <div class="video-card">
+                    <div class="thumbnail-wrapper">
+                        <img src="https://img.youtube.com/vi/L_LUpnjgPso/hqdefault.jpg" alt="Video Thumbnail">
+                        <div class="play-icon"></div>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-tag">준비중2</span>
+                        <h2 class="video-title">준비중2</h2>
+                        <p class="video-desc">준비중2</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 비디오 03 -->
+            <a href="ars-belli-detail.html?vid=ScMzIvxBSi4&title=MMA+and+Grappling+Heritage" class="video-card-link">
+                <div class="video-card">
+                    <div class="thumbnail-wrapper">
+                        <img src="https://img.youtube.com/vi/ScMzIvxBSi4/hqdefault.jpg" alt="Video Thumbnail">
+                        <div class="play-icon"></div>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-tag">준비중3</span>
+                        <h2 class="video-title">준비중3</h2>
+                        <p class="video-desc">준비중3</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 카드는 아래 형태로 원하시는 만큼 복사해서 늘리실 수 있습니다 -->
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; KYUNGMIN KIM. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+</body>
+</html>
