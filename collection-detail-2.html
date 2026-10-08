@@ -4,242 +4,235 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HISTORY OF SAMBO</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Serif+KR:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Noto+Serif+KR:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-color: #0b0c0e;
-            --surface-color: #141619;
-            --accent-gold: #d4af37;
-            --accent-gold-light: #f3e5ab;
-            --text-primary: #f5f5f7;
-            --text-secondary: #9a9a9e;
-            --border-color: #26292e;
-            --font-serif-en: 'Cormorant Garamond', serif;
-            --font-serif-kr: 'Noto Serif KR', serif;
-            --font-sans: 'Inter', sans-serif;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            font-family: var(--font-serif-kr);
-            line-height: 1.8;
-        }
-
-        header {
-            padding: 30px 0 20px;
-            text-align: center;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
-        }
-
-        /* 상단 뒤로가기 버튼 */
-        .back-nav {
-            display: inline-block;
-            margin-bottom: 8px;
-            color: var(--accent-gold);
-            text-decoration: none;
-            font-family: var(--font-serif-en);
-            font-size: 0.9rem;
-            letter-spacing: 0.2em;
-            transition: all 0.3s ease;
-        }
-
-        .back-nav:hover {
-            color: #ffffff;
-            transform: translateX(-4px);
-        }
-
-        .brand-title {
-            font-family: var(--font-serif-en);
-            font-size: 1.8rem;
-            letter-spacing: 0.35em;
-            color: var(--accent-gold);
-            text-transform: uppercase;
-        }
-
-        .container {
-            max-width: 800px;
+            background-color: #0b0c0e;
+            color: #f5f5f7;
+            font-family: 'Noto Serif KR', serif;
+            padding: 40px 24px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 60px 24px 100px;
         }
-
-        /* Detail Header */
-        .detail-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .edition-tag {
-            font-family: var(--font-serif-en);
-            font-size: 0.85rem;
-            color: var(--accent-gold);
-            letter-spacing: 0.2em;
-            display: block;
-            margin-bottom: 12px;
-        }
-
-        .detail-title {
-            font-size: 2.2rem;
-            color: #ffffff;
-            font-weight: 400;
-            margin-bottom: 16px;
-            letter-spacing: -0.01em;
-        }
-
-        /* 이미지 갤러리 영역 */
-        .gallery-container {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .gallery-item {
-            width: 100%;
-            border: 1px solid var(--border-color);
-            background: var(--surface-color);
-            overflow: hidden;
-            border-radius: 4px;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-            filter: brightness(0.9);
-            transition: filter 0.3s ease;
-        }
-
-        .gallery-item img:hover {
-            filter: brightness(1);
-        }
-
-        .image-caption {
-            padding: 12px 16px;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            font-family: var(--font-sans);
-            text-align: center;
-            border-top: 1px solid var(--border-color);
-        }
-
-        /* 상세 설명 박스 */
-        .description-box {
-            background: var(--surface-color);
-            border: 1px solid var(--border-color);
-            border-top: 2px solid var(--accent-gold);
-            padding: 36px 30px;
-            border-radius: 4px;
+        .header {
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding-bottom: 20px;
             margin-bottom: 40px;
         }
-
-        .description-title {
-            font-family: var(--font-serif-en);
-            font-size: 1.1rem;
-            color: var(--accent-gold);
-            letter-spacing: 0.15em;
-            margin-bottom: 16px;
-            text-transform: uppercase;
-        }
-
-        .description-text {
-            color: var(--text-primary);
-            font-size: 0.98rem;
-            line-height: 1.9;
-            margin-bottom: 16px;
-        }
-
-        /* 하단 뒤로가기 푸터 버튼 */
-        .bottom-action {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .btn-back-main {
-            display: inline-block;
-            padding: 12px 30px;
-            border: 1px solid var(--accent-gold);
-            color: var(--accent-gold);
+        .back-btn {
+            color: #d4af37;
             text-decoration: none;
-            font-family: var(--font-serif-en);
             font-size: 0.9rem;
-            letter-spacing: 0.2em;
-            transition: all 0.3s ease;
         }
-
-        .btn-back-main:hover {
-            background: var(--accent-gold);
-            color: #0b0c0e;
-            font-weight: 600;
-        }
-
-        footer {
-            padding: 40px 0;
-            text-align: center;
-            font-family: var(--font-sans);
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            border-top: 1px solid var(--border-color);
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: #d4af37;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-
-    <header>
-        <!-- 뒤로가기 버튼 -->
-        <a href="collection.html" class="back-nav">← BACK TO BOARD</a>
-        <div class="brand-title">KYUNGMIN KIM</div>
-    </header>
-
-    <div class="container">
-        
-        <!-- 타이틀 헤더 -->
-        <div class="detail-header">
-            <span class="edition-tag">No. 2</span>
-            <h1 class="detail-title">준비 중입니다.</h1>
-        </div>
-
-        <!-- 사진 여러 개 나오는 영역 (원하는 이미지 파일명으로 교체 가능) -->
-        <div class="gallery-container">
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80" alt="Detail Image 1">
-                <p class="image-caption">01. 설명</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80" alt="Detail Image 2">
-                <p class="image-caption">02. 설명</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80" alt="Detail Image 3">
-                <p class="image-caption">03. 설명</p>
-            </div>
-        </div>
-
-        <!-- 상세 설명 글 영역 -->
-        <div class="description-box">
-            <h2 class="description-title">PROJECT OVERVIEW</h2>
-            <p class="description-text">
-                상세설명
-            </p>
-            <p class="description-text">
-                상세설명2
-            </p>
-        </div>
-
-        <!-- 하단 뒤로가기 버튼 -->
-        <div class="bottom-action">
-            <a href="collection.html" class="btn-back-main">BACK TO BOARD</a>
-        </div>
-
+    <div class="header">
+        <!-- 메인 페이지로 돌아가는 링크 -->
+        <a href="index.html" class="back-btn">← MAIN ARCHIVE</a>
+        <h1>HISTORY OF SAMBO</h1>
     </div>
+    <main>
+                <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="sam1.jpg" alt="Detail Image 1">
+                <p class="image-caption"></p>
+            </div>
+                    <br>
+        <p>On January 7, 1893, Vasili Oshchepkov was born on Sakhalin Island in the Russian Empire.In 1913, Jigoro Kano, the founder of Judo, awarded Vasili Oshchepkov a first-degree black belt. After continuing his training, Oshchepkov eventually became the first Russian to hold a Judo black belt, as well as the first Russian to attain the rank of second dan./p>
+<br>
+        <p>After returning to Russia, he worked as an intelligence operative under the Russian Empire and devoted himself to the spread of Judo, including organizing international Judo competitions./p>
+<br>
+        <p>Drawing upon his experience of living in Japan, he became involved in business between the Soviet Union and Japan after the Russian Empire collapsed and the Soviet Union was established. He was also appointed as a professor at the Russian National University of Physical Education, Sport, Youth and Tourism./p>
+<br>
+                <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="sam2.jpg" alt="Detail Image 2">
+                <p class="image-caption">Vasili Oshchepkov</p>
+            </div>
+                <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="sam3.jpg" alt="Detail Image 3">
+                <p class="image-caption">Viktor Spiridonov</p>
+            </div>
+<br>
+        <p>During this period, he studied close-quarters combat for military personnel and analyzed various martial arts from around the world. He also met Viktor Spiridonov, a Soviet officer who had studied Japanese jujutsu. The two began researching systems of hand-to-hand combat and physical conditioning for soldiers, and their work would become the foundation of Sambo.</p>
+<br>
+        <p>However, Viktor died of lung cancer during the Second World War, while Vasili became a target of Stalin's purges because of his friendly relations with Japan and eventually died in prison.</p>
+<br>
+                <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="sam4.jpg" alt="Detail Image 4">
+                <p class="image-caption">Anatoly Kharlampiev</p>
+            </div>
+<br>
+        <p>Later, Anatoly Kharlampiev, a student of Viktor and a Judo practitioner at the Russian National University of Physical Education, refined the foundations of the combat system developed by the two men. Drawing upon boxing, wrestling, gymnastics, and other disciplines, he completed the martial art and gave it the name “Sambo.”</p>
+<br>
+        <p>Sambo was subsequently spread throughout the Soviet Union as a sport, where its distinctive leg-lock techniques underwent remarkable development. It was also adopted by the Red Army as a combat system for military personnel.</p>
+<br>
+        <p>Because Soviet special forces personnel were trained in Sambo, some of them also went on to compete in Olympic sports such as boxing and wrestling.</p>
+<br>
+        <p>Following the dissolution of the Soviet Union, Sambo began to spread throughout the world because of its distinctive aggressiveness and powerful techniques. In South Korea, the Korea Sambo Federation was officially established in 2004 and worked to promote the spread of Sambo.</p>
+<br>
+        <p>Sambo has since been adopted as a sport at the European Games and has also been featured as a demonstration sport at the Olympics, making it a combat sport with considerable potential for the future.</p>
+<br>
+                <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="sam5.jpg" alt="Detail Image 5">
+                <p class="image-caption"></p>
+            </div>
+<br>
+<br>
+                <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="sam6.jpg" alt="Detail Image 6">
+                <p class="image-caption"></p>
+            </div>
+<br>
+<br>
+                <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="sam7.jpg" alt="Detail Image 7">
+                <p class="image-caption"></p>
+            </div>
+<br>
+                <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="sam8.jpg" alt="Detail Image 8">
+                <p class="image-caption"></p>
+            </div>
+<br>
+                <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="sam9.jpg" alt="Detail Image 9">
+                <p class="image-caption"></p>
+            </div>
+<br>
+<br>
+        <p><Sambo is unusual among modern combat systems in that it was developed from the outset by military personnel as a method of unarmed close-quarters combat in modern warfare, where guns and knives are commonplace./p>
+<br>
+        <p>All Russian soldiers train in Sambo, and recruits seeking to join elite units such as the Spetsnaz and the Russian Airborne Forces are required to withstand Sambo sparring sessions against senior soldiers.</p>
+<br>
+        <p>There are currently several disciplines of Sambo, including Sport Sambo, Combat Sambo, and the more recently introduced Beach Sambo.</p>
+<br>
+        <p>Sport Sambo allows most forms of grappling techniques except choking techniques, while Combat Sambo is the discipline practiced by the Russian military and resembles mixed martial arts. It is particularly noteworthy for allowing techniques that are prohibited in MMA, such as headbutts and striking while gripping the opponent's jacket.</p>
+<br>
+                <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="sam10.gif" alt="Detail Image 10">
+                <p class="image-caption"></p>
+            </div>
+<br>
+        <p>A combination of Judo, wrestling, traditional Japanese jujutsu, European wrestling, boxing, and Savate, Sambo produces a distinctive style of competition.</p>
+<br>
+        <p>One notable example is that it retains Judo's pinning points and ippon victories.</p>
+<br>
+        <p>In the video above, if the match had been fought under MMA rules, the athlete in the red uniform would have landed several clean strikes. In Sambo, however, the match ultimately resulted in the athlete taking an early five-point lead and then scoring four additional points with a final throw, resulting in a victory declaration with an eight-point advantage.</p>
+<br>
+        <p>This demonstrates that Sambo is not merely a sport, but a martial art whose techniques were developed with lethal combat in mind.</p>
+<br>
+                <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="sam11.gif" alt="Detail Image 11">
+                <p class="image-caption"></p>
+            </div>
+<br>
+<br>
+                <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="sam12.jpg" alt="Detail Image 12">
+                <p class="image-caption"></p>
+            </div>
+<br>
+<br>
+                <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="sam13.jpg" alt="Detail Image 13">
+                <p class="image-caption"></p>
+            </div>
+<br>
+<br>
+                <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="sam14.gif" alt="Detail Image 14">
+                <p class="image-caption"></p>
+            </div>
+<br>
+<br>
+        <p>Japanese samurai were heavily protected by powerful armor, leaving only limited areas of the body—such as the wrists, armpits, and backs of the knees—vulnerable to attack. For this reason, samurai trained in traditional forms of jujutsu, such as Tenjin Shinyo-ryu Jujutsu, which later contributed to the development of modern Judo and Sambo.</p>
+<br>
+        <p>In situations where swords had already been engaged at close range, known as aiki, a samurai could use jujutsu to throw an opponent to the ground and then employ a dagger to strike through gaps in the armor and kill him.</p>
+<br>
+<br>
+                <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="sam15.jpg" alt="Detail Image 15">
+                <p class="image-caption"></p>
+            </div>
+<br>
+<br>
+                <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="sam16.gif" alt="Detail Image 16">
+                <p class="image-caption"></p>
+            </div>
+<br>
+<br>
+                <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="sam17.gif" alt="Detail Image 17">
+                <p class="image-caption"></p>
+            </div>
+<br>
+<br>
+                <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="sam18.gif" alt="Detail Image 18">
+                <p class="image-caption"></p>
+            </div>
+<br>
+        <p>This is comparable to the way ancient Roman wrestling spread throughout different parts of Europe, eventually becoming various forms of folk wrestling and influencing the development of European swordsmanship. The pin-fall victory in wrestling likewise developed from the practice of forcing down an opponent while both fighters were wearing armor.</p>
+<br>
+                <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="sam19.png" alt="Detail Image 19">
+                <p class="image-caption"></p>
+            </div>
+<br>
+<br>
+                <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="sam20.jph" alt="Detail Image 20">
+                <p class="image-caption"></p>
+            </div>
+<br>
+<br>
+                <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="sam21.jpg" alt="Detail Image 21">
+                <p class="image-caption"></p>
+            </div>
+<br>
+<br>
+        <p>Today, when discussing the strongest martial arts in the grappling family, many martial artists would name Brazilian Jiu-Jitsu (BJJ). Its techniques are highly refined and sophisticated.</p>
+<br>
+        <p>However, Brazilian Jiu-Jitsu and Sambo were born from fundamentally different circumstances.</p>
+<br>
+        <p>Sambo was designed with the objective of rapidly defeating an enemy in close combat within an enemy trench while bullets were flying overhead. Consequently, while Sambo may be less technically refined on the ground than Brazilian Jiu-Jitsu, its rapid application of pain-compliance techniques whenever an opening appears, its powerful pinning techniques, and its unorthodox throws make it highly competitive with other martial arts.</p>
+<br>
+        <p>The pinning techniques of Sambo, much like those of Judo, are based on the principle that successfully holding an opponent down for twenty seconds creates an opportunity to use a weapon to take the opponent's life.</p>
+<br>
+        <p>For this reason, Sambo places a greater emphasis on grappling than Kudo, a martial art derived from Kyokushin Karate that, like Sambo, combines a uniform-based combat system with mixed martial arts.</p>
+<br>
+        <p>Written by Kyungmin Kim</p>
+<br>
 
-    <footer>
-        <p>&copy; KYUNGMIN KIM. ALL RIGHTS RESERVED.</p>
-    </footer>
-
+    </main>
 </body>
 </html>
